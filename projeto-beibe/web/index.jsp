@@ -7,79 +7,27 @@ and open the template in the editor.
 <html>
     <head>
         <%@include file="imports.jsp" %>
-        <style>
-            html,body { 
-	height: 100%; 
-}
-
-.global-container{
-	height:100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #f5f5f5;
-}
-
-form{
-	padding-top: 10px;
-	font-size: 14px;
-	margin-top: 30px;
-}
-
-.card-title{ font-weight:300; }
-
-.btn{
-	font-size: 14px;
-	margin-top:20px;
-}
-
-
-.login-form{ 
-	width:330px;
-	margin:20px;
-}
-
-.sign-up{
-	text-align:center;
-	padding:20px 0 0;
-}
-
-.alert{
-	margin-bottom:-30px;
-	font-size: 13px;
-	margin-top:20px;
-}
-        </style>
+        <link rel="stylesheet" href="css/index.css">
     </head>
     <body>
-        <div class="global-container">
-	<div class="card login-form">
-	<div class="card-body">
-		<h3 class="card-title text-center">Log in to Codepen</h3>
-		<div class="card-text">
-			<!--
-			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-			<form>
-				<!-- to error: add class "has-danger" -->
-				<div class="form-group">
-					<label for="exampleInputEmail1">Email address</label>
-					<input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
-					<a href="#" style="float:right;font-size:12px;">Forgot password?</a>
-					<input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
-				</div>
-				<button type="submit" class="btn btn-primary btn-block">Sign in</button>
-				
-				<div class="sign-up">
-					Don't have an account? <a href="#">Create One</a>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-</div>
-
+        <div class="container-login">
+            <div class="form-login">
+                <h3 class="text-center">Beibe</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control form-control-sm" id="email" name="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" class="form-control form-control-sm" id="senha" name="senha">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <div class="cadastro">
+                        Ainda não possui uma conta? <a href="#">Cadastre-se</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
