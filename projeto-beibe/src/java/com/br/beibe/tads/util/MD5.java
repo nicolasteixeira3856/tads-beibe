@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author nicol
  */
 public class MD5 {
-    static public String MD5Transformed(String s) {
+    public static String MD5Transformed(String s) {
         MessageDigest m;
         try {
             m = MessageDigest.getInstance("MD5");
