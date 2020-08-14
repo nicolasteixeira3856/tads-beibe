@@ -5,11 +5,12 @@
  */
 package com.br.beibe.tads.bean;
 
+import java.io.Serializable;
 /**
  *
  * @author nicol
  */
-public class Cidade {
+public class Cidade implements Serializable {
     private int id;
     private Estado estado;
     private String nome;

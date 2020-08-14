@@ -5,11 +5,12 @@
  */
 package com.br.beibe.tads.bean;
 
+import java.io.Serializable;
 /**
  *
  * @author nicol
  */
-public class CategoriaProduto {
+public class CategoriaProduto implements Serializable {
     private int id;
     private String nome;
 

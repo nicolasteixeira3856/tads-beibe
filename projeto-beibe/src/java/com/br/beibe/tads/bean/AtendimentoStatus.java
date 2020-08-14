@@ -10,11 +10,11 @@ import java.io.Serializable;
  *
  * @author nicol
  */
-public class Estado implements Serializable {
+public class AtendimentoStatus implements Serializable {
     private int id;
     private String nome;
 
-    public Estado() {
+    public AtendimentoStatus() {
     }
 
     public int getId() {
@@ -32,6 +32,4 @@ public class Estado implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
 }

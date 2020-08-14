@@ -6,16 +6,17 @@
 package com.br.beibe.tads.bean;
 
 import java.util.Date;
+import java.io.Serializable;
 
 /**
  *
  * @author nicol
  */
-public class Atendimento {
+public class Atendimento implements Serializable {
     private int id;
     private Date dataCriacao;
     private Usuario usuario;
-    private int status;
+    private AtendimentoStatus status;
     private Produto produto;
     private TipoAtendimento tipoAtendimento;
     private String descricao;
@@ -48,14 +49,14 @@ public class Atendimento {
         this.usuario = usuario;
     }
 
-    public int getStatus() {
+    public AtendimentoStatus getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(AtendimentoStatus status) {
         this.status = status;
     }
-
+    
     public Produto getProduto() {
         return produto;
     }

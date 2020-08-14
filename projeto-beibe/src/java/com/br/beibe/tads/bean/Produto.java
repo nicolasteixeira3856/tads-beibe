@@ -5,11 +5,12 @@
  */
 package com.br.beibe.tads.bean;
 
+import java.io.Serializable;
 /**
  *
  * @author nicol
  */
-public class Produto {
+public class Produto implements Serializable {
     private int id;
     private String nome;
     private CategoriaProduto categoria;
@@ -57,7 +58,5 @@ public class Produto {
 
     public void setPeso(String peso) {
         this.peso = peso;
-    }
-    
-    
+    }   
 }
