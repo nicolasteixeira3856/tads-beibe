@@ -9,12 +9,11 @@ package com.br.beibe.tads.bean;
  *
  * @author nicol
  */
-public class Cidade {
+public class CategoriaProduto {
     private int id;
-    private Estado estado;
     private String nome;
 
-    public Cidade() {
+    public CategoriaProduto() {
     }
 
     public int getId() {
@@ -23,14 +22,6 @@ public class Cidade {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
     }
 
     public String getNome() {
