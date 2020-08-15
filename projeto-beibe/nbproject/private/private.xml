@@ -11,9 +11,14 @@
             <file>file:/C:/Users/Dell/Documents/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/exception/CONException.java</file>
         </group>
         <group name="Web 2">
+            <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/facade/EstadoFacade.java</file>
+            <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/web/components/navbarCliente.jsp</file>
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/web/atendimentoDetalhe.jsp</file>
+            <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/LoginServlet.java</file>
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/bean/Atendimento.java</file>
+            <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/web/portalCliente.jsp</file>
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/web/css/atendimentoDetalhe.css</file>
+            <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/dao/EstadoDAO.java</file>
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/bean/AtendimentoStatus.java</file>
         </group>
     </open-files>
