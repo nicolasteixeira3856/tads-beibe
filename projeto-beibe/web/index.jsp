@@ -13,7 +13,8 @@ and open the template in the editor.
         <div class="container-login">
             <div class="form-login">
                 <h3 class="text-center">Beibe</h3>
-                <form action="LoginServlet">
+                <form action="LoginServlet" method="post">
+                    <span style="color:red">${mensagem}</span>
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" class="form-control form-control-sm" id="email" name="email" aria-describedby="emailHelp">

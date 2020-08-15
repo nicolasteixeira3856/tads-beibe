@@ -17,8 +17,14 @@ import com.br.beibe.tads.factory.ConnectionFactory;
  */
 public class UsuarioFacade {
     public static Usuario buscarPorEmail(String email) throws DAOException, CONException {
-        ConnectionFactory con = new ConnectionFactory();
-        UsuarioDAO usuarioDAO = new UsuarioDAO(con.getConnection());
-        return usuarioDAO.buscarPorEmail(email);
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+            UsuarioDAO usuarioDAO = new UsuarioDAO(con.getConnection());
+            return usuarioDAO.buscarPorEmail(email);
+        } catch (DAOException e) {
+            throw new DAOException("Não foi possível encontrar usuário para o email: " + "/ " + email, e);
+        } catch (CONException e) {
+            throw new CONException("Não foi possível se conectar ao sistema! Tente novamente mais tarde. ", e);
+        }
     }
 }

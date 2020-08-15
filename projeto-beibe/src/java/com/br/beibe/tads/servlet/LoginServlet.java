@@ -19,6 +19,8 @@ import com.br.beibe.tads.exception.CONException;
 import com.br.beibe.tads.exception.DAOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,27 +40,46 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String email = request.getParameter("email");
+        String senha = request.getParameter("senha");
+        if (email.isEmpty() || senha.isEmpty()) {
+            request.setAttribute("mensagem", "Nenhum campo pode estar vazio");
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
+            return;
+        }
         try {
-            String email = request.getParameter("email");
-            String senha = request.getParameter("senha");
-            UsuarioFacade usuarioFacade = new UsuarioFacade();
             Usuario usuario = new Usuario();
             usuario = UsuarioFacade.buscarPorEmail(email);
             senha = MD5.MD5Transformed(senha);
             
             if (senha.equals(usuario.getSenha())) {
-                System.out.println("Logado");
+                HttpSession session = request.getSession(true);
+                session.setAttribute("usuarioId", usuario.getId());
+                session.setAttribute("usuarioNivel", usuario.getNivel());
+                switch (usuario.getNivel()) {
+                    case 1:
+                        {
+                            response.sendRedirect("portalGerente.jsp");
+                            break;
+                        }
+                    case 2:
+                        {
+                            response.sendRedirect("portalFuncionario.jsp");
+                            break;
+                        }
+                    default:
+                        {
+                            response.sendRedirect("portalUsuario.jsp");
+                            break;
+                        }
+                }
             }
-        } catch (DAOException ex) {
-              Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (CONException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DAOException | CONException ex) {
+            request.setAttribute("mensagem", ex.getMessage());
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
         }
-
-        
-        
-      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
