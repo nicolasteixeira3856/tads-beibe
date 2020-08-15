@@ -21,6 +21,7 @@
 <html>
     <head>
         <%@include file="imports.jsp" %>
+        <script src="js/validacao.js"></script>
     </head>
     <body>
         <%@include file="components/navbarCliente.jsp" %>
@@ -72,12 +73,11 @@
                     <form>
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="email" class="form-control" value="${usuario.nome}" >
+                            <input type="text" class="form-control" value="${usuario.nome}" >
                         </div>
                         <div class="form-group">
                             <label>Endereço</label>
-                            <input type="text" class="form-control" value="${usuario.endereco}"></br>
-                            
+                            <input type="text" class="form-control" value="${usuario.endereco}"></br> 
                             <select  class="form-control">
                                 <c:forEach var="lstEstd" items="${requestScope.listaEstado}">
 
@@ -92,7 +92,6 @@
                                     
                                 </c:forEach>
                             </select> </br>
-                            
                             <select  class="form-control">
                                 <c:forEach var="lstCdd" items="${requestScope.listaCidade}">
 
@@ -107,30 +106,23 @@
                                     
                                 </c:forEach>
                             </select>
-                            
                         </div>
-                        
                         <div class="form-group">
-                            
                             <label>Telefone</label>
-                            <input type="text" class="form-control" value="${usuario.telefone}">
-                                
-                        </div>
-                            
-                        <div class="form-group">
-                            
+                            <input type="text" class="form-control" value="${usuario.telefone}"> 
+                        </div>   
+                        <div class="form-group validacao">
                             <label>Senha</label>
                             <input type="password" class="form-control" placeholder="Digite sua senha atual"></br>
-                            <input type="password" class="form-control" placeholder="Digite sua nova senha"></br>
-                            <input type="password" class="form-control" placeholder="Confirmar nova senha">
-                                
+                            <input type="password" class="form-control nova_senha" id="valida" placeholder="Digite sua nova senha"></br>
+                            <input type="password" class="form-control confirma_senha" id="valida2" placeholder="Confirmar nova senha">
+                            <span id="error"></span>       
                         </div>
-                            
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-primary" id="botao">Enviar</button>
                     </form>
                 </div>
             </div>
-        </div>
+        </div>               
     </body>
 </html>
     
