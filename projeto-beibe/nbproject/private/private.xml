@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/LoginServlet.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/cadastro.jsp</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/atendimento.jsp</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/imports.jsp</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/factory/ConnectionFactory.java</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/portalCliente.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/components/navbarGerente.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/portalGerente.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/bean/Usuario.java</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/cadastro.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/components/navbarCliente.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/LoginServlet.java</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/produto.jsp</file>
         </group>
     </open-files>
 </project-private>
