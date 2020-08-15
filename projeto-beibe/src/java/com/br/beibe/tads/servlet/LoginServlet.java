@@ -55,6 +55,7 @@ public class LoginServlet extends HttpServlet {
             
             if (senha.equals(usuario.getSenha())) {
                 HttpSession session = request.getSession(true);
+                session.setAttribute("logado", true);
                 session.setAttribute("usuarioId", usuario.getId());
                 session.setAttribute("usuarioNivel", usuario.getNivel());
                 switch (usuario.getNivel()) {
@@ -70,7 +71,7 @@ public class LoginServlet extends HttpServlet {
                         }
                     default:
                         {
-                            response.sendRedirect("portalUsuario.jsp");
+                            response.sendRedirect("portalCliente.jsp");
                             break;
                         }
                 }
