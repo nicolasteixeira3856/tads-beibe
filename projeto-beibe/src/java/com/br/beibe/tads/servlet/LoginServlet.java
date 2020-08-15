@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.br.beibe.tads.util.MD5;
 import com.br.beibe.tads.facade.UsuarioFacade;
 import com.br.beibe.tads.facade.TipoAtendimentoFacade;
+import com.br.beibe.tads.facade.ProdutoFacade;
 import com.br.beibe.tads.bean.Usuario;
+import com.br.beibe.tads.bean.Produto;
 import com.br.beibe.tads.exception.CONException;
 import com.br.beibe.tads.exception.DAOException;
 import com.br.beibe.tads.bean.TipoAtendimento;
@@ -72,8 +74,10 @@ public class LoginServlet extends HttpServlet {
                     default:
                         {
                             List<TipoAtendimento> listaTipoAtendimento = TipoAtendimentoFacade.buscaTodos();
+                            List<Produto> listaProduto = ProdutoFacade.buscarTodosApenasIdNome();
                             RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
                             request.setAttribute("listaTipoAtendimento", listaTipoAtendimento);
+                            request.setAttribute("listaProduto", listaProduto);
                             rd.forward(request, response);
 //                            response.sendRedirect("portalCliente.jsp");
                             break;

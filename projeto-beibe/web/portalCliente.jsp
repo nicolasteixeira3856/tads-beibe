@@ -38,7 +38,9 @@
                                     <label for="produto">Produto</label>
                                     <select id="produto" class="form-control">
                                         <option selected>Escolher...</option>
-                                        <option>...</option>
+                                         <c:forEach var="prd" items="${requestScope.listaProduto}">
+                                            <option value="${prd.getId()}"> ${prd.getNome()} </option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -46,7 +48,7 @@
                                     <select id="atendimento" class="form-control">
                                         <option selected>Escolher...</option>
                                         <c:forEach var="tipoAtd" items="${requestScope.listaTipoAtendimento}">
-                                            <option> ${tipoAtd.getNome()} </option>
+                                            <option value="${tipoAtd.getId()}"> ${tipoAtd.getNome()} </option>
                                         </c:forEach>
                                     </select>
                                 </div>
