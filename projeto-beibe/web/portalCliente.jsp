@@ -32,40 +32,35 @@
                 </div>
                 <div class="tab-pane fade" id="novoAtendimento">
                     <div style="padding: 50px;">
-                    <form class="mt-5">
-                       <div class="form-row">
-                           <div class="form-group col-md-6">
-
-                           <label for="produto">Produto</label>
-                           <select id="produto" class="form-control">
-                             <option selected>Escolher...</option>
-                             <option>...</option>
-                           </select>
-
-                         </div>
-                         <div class="form-group col-md-6">
-
-                           <label for="atendimento">Tipo de atendimento</label>
-                           <select id="atendimento" class="form-control">
-                             <option selected>Escolher...</option>
-                             <option>...</option>
-                           </select>
-
-                         </div>
-                       </div>
-                               <div class="form-row">
-                         <div class="form-group col-md-12">
-                          <label for="descricao">Descrição</label>
-                         <textarea class="form-control" id="descricao" style="height: 250px;"></textarea>
-                         </div>
-                       </div>
-
-                        <div class="mx-auto">
-                       <button type="submit" class="btn btn-primary btn-lg" style="background-color: #57ba85; border-color:#57ba85;" >Enviar</button>
-                       </div>
-                    
-                    </form>
-                   
+                        <form class="mt-5">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="produto">Produto</label>
+                                    <select id="produto" class="form-control">
+                                        <option selected>Escolher...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="atendimento">Tipo de atendimento</label>
+                                    <select id="atendimento" class="form-control">
+                                        <option selected>Escolher...</option>
+                                        <c:forEach var="tipoAtd" items="${requestScope.listaTipoAtendimento}">
+                                            <option> ${tipoAtd.getNome()} </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="descricao">Descrição</label>
+                                    <textarea class="form-control" id="descricao" style="height: 250px;"></textarea>
+                                </div>
+                            </div>
+                            <div class="mx-auto">
+                                <button type="submit" class="btn btn-primary btn-lg" style="background-color: #57ba85; border-color:#57ba85;" >Enviar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="alterarDados">

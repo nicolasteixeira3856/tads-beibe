@@ -6,7 +6,6 @@
 package com.br.beibe.tads.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,11 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.br.beibe.tads.util.MD5;
 import com.br.beibe.tads.facade.UsuarioFacade;
+import com.br.beibe.tads.facade.TipoAtendimentoFacade;
 import com.br.beibe.tads.bean.Usuario;
 import com.br.beibe.tads.exception.CONException;
 import com.br.beibe.tads.exception.DAOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.br.beibe.tads.bean.TipoAtendimento;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 
@@ -71,7 +71,11 @@ public class LoginServlet extends HttpServlet {
                         }
                     default:
                         {
-                            response.sendRedirect("portalCliente.jsp");
+                            List<TipoAtendimento> listaTipoAtendimento = TipoAtendimentoFacade.buscaTodos();
+                            RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
+                            request.setAttribute("listaTipoAtendimento", listaTipoAtendimento);
+                            rd.forward(request, response);
+//                            response.sendRedirect("portalCliente.jsp");
                             break;
                         }
                 }

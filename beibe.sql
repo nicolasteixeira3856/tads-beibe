@@ -88,7 +88,7 @@ CREATE TABLE `categoria_produto` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +97,7 @@ CREATE TABLE `categoria_produto` (
 
 LOCK TABLES `categoria_produto` WRITE;
 /*!40000 ALTER TABLE `categoria_produto` DISABLE KEYS */;
+INSERT INTO `categoria_produto` VALUES (1,'Higiene pessoal');
 /*!40000 ALTER TABLE `categoria_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +166,7 @@ CREATE TABLE `produto` (
   PRIMARY KEY (`id`),
   KEY `idfk_categoria` (`idfk_categoria`),
   CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`idfk_categoria`) REFERENCES `categoria_produto` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,6 +175,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
+INSERT INTO `produto` VALUES (1,'Condicionador Dona Bella',1,'Condicionador para cabelos meia idade.','200');
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +190,7 @@ CREATE TABLE `tipo_atendimento` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -197,6 +199,7 @@ CREATE TABLE `tipo_atendimento` (
 
 LOCK TABLES `tipo_atendimento` WRITE;
 /*!40000 ALTER TABLE `tipo_atendimento` DISABLE KEYS */;
+INSERT INTO `tipo_atendimento` VALUES (1,'Problema com o produto');
 /*!40000 ALTER TABLE `tipo_atendimento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,4 +247,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-14 23:30:56
+-- Dump completed on 2020-08-15  1:38:34
