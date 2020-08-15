@@ -28,18 +28,20 @@ CREATE TABLE `atendimento` (
   `id` int NOT NULL AUTO_INCREMENT,
   `data_criacao` datetime DEFAULT CURRENT_TIMESTAMP,
   `idfk_usuario` int DEFAULT NULL,
-  `status` smallint DEFAULT NULL,
+  `idfk_status` int DEFAULT NULL,
   `idfk_produto` int DEFAULT NULL,
   `idfk_tipo_atendimento` int DEFAULT NULL,
   `descricao` text NOT NULL,
-  `solucao_apresentada` text NOT NULL,
+  `solucao_apresentada` text,
   PRIMARY KEY (`id`),
   KEY `idfk_usuario` (`idfk_usuario`),
+  KEY `idfk_status` (`idfk_status`),
   KEY `idfk_produto` (`idfk_produto`),
   KEY `idfk_tipo_atendimento` (`idfk_tipo_atendimento`),
   CONSTRAINT `atendimento_ibfk_1` FOREIGN KEY (`idfk_usuario`) REFERENCES `usuario` (`id`),
-  CONSTRAINT `atendimento_ibfk_2` FOREIGN KEY (`idfk_produto`) REFERENCES `produto` (`id`),
-  CONSTRAINT `atendimento_ibfk_3` FOREIGN KEY (`idfk_tipo_atendimento`) REFERENCES `tipo_atendimento` (`id`)
+  CONSTRAINT `atendimento_ibfk_2` FOREIGN KEY (`idfk_status`) REFERENCES `atendimento_stauts` (`id`),
+  CONSTRAINT `atendimento_ibfk_3` FOREIGN KEY (`idfk_produto`) REFERENCES `produto` (`id`),
+  CONSTRAINT `atendimento_ibfk_4` FOREIGN KEY (`idfk_tipo_atendimento`) REFERENCES `tipo_atendimento` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,6 +52,29 @@ CREATE TABLE `atendimento` (
 LOCK TABLES `atendimento` WRITE;
 /*!40000 ALTER TABLE `atendimento` DISABLE KEYS */;
 /*!40000 ALTER TABLE `atendimento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `atendimento_stauts`
+--
+
+DROP TABLE IF EXISTS `atendimento_stauts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `atendimento_stauts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `atendimento_stauts`
+--
+
+LOCK TABLES `atendimento_stauts` WRITE;
+/*!40000 ALTER TABLE `atendimento_stauts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `atendimento_stauts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -206,7 +231,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Nicolas Teixeira','11167328906','nicolasteixeira3856@outlook.com','Rua Maria da Luz Rocha Belão, 610',1,'41999409631','8e406feab23e1239a50b0d329b0754fb',1);
+INSERT INTO `usuario` VALUES (1,'Nicolas Teixeira','11167328906','nicolasteixeira3856@outlook.com','Rua Maria da Luz Rocha Belão, 610',1,'41999409631','8e406feab23e1239a50b0d329b0754fb',3);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -219,4 +244,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-13 20:45:17
+-- Dump completed on 2020-08-14 23:30:56
