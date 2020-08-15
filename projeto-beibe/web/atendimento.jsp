@@ -11,8 +11,8 @@ and open the template in the editor.
     </head>
     <body>
         <div  class="container">
-        <form class="ml-4 mr-4">
-  <div class="form-row">
+            <form class="ml-4 mr-4" action="ClienteServeletAtendimento" method="post">
+  <div class="form-row" >
       <div class="form-group col-md-6">
      
       <label for="produto">Produto</label>
