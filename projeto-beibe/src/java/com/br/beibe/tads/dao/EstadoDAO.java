@@ -6,11 +6,14 @@
 package com.br.beibe.tads.dao;
 
 import com.br.beibe.tads.bean.Estado;
+import com.br.beibe.tads.bean.TipoAtendimento;
 import com.br.beibe.tads.exception.DAOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,6 +21,7 @@ import java.sql.SQLException;
  */
 public class EstadoDAO {
     private static final String QUERY_BUSCAR_POR_ID = "SELECT id, nome FROM estado WHERE id = ?";
+    private static final String QUERY_BUSCAR_TODOS = "SELECT id, nome FROM estado";
     private Connection con = null;
     
     public EstadoDAO(Connection con) throws DAOException {
@@ -42,6 +46,26 @@ public class EstadoDAO {
             throw new DAOException("Erro ao buscar estado: " +
             QUERY_BUSCAR_POR_ID +
             "/ " + id, e);
+        }
+    }
+    
+    public List<Estado> buscarTodos() throws DAOException {
+        try (PreparedStatement st = con.prepareStatement(QUERY_BUSCAR_TODOS)) {
+            
+            ResultSet rs = st.executeQuery();
+            List<Estado> listEstado = new ArrayList<>();
+            
+            if (rs.next()) {
+                Estado estado = new Estado();
+                estado.setId(Integer.valueOf(rs.getString("id")));
+                estado.setNome((rs.getString("nome")));
+                listEstado.add(estado);
+            }
+            
+            return listEstado;
+        }
+        catch(SQLException e) {
+            throw new DAOException("Erro ao listar todos os estados: " + QUERY_BUSCAR_TODOS, e);
         }
     }
 }

@@ -15,8 +15,12 @@ import com.br.beibe.tads.util.MD5;
 import com.br.beibe.tads.facade.UsuarioFacade;
 import com.br.beibe.tads.facade.TipoAtendimentoFacade;
 import com.br.beibe.tads.facade.ProdutoFacade;
+import com.br.beibe.tads.facade.EstadoFacade;
+import com.br.beibe.tads.facade.CidadeFacade;
 import com.br.beibe.tads.bean.Usuario;
 import com.br.beibe.tads.bean.Produto;
+import com.br.beibe.tads.bean.Estado;
+import com.br.beibe.tads.bean.Cidade;
 import com.br.beibe.tads.exception.CONException;
 import com.br.beibe.tads.exception.DAOException;
 import com.br.beibe.tads.bean.TipoAtendimento;
@@ -75,9 +79,13 @@ public class LoginServlet extends HttpServlet {
                         {
                             List<TipoAtendimento> listaTipoAtendimento = TipoAtendimentoFacade.buscaTodos();
                             List<Produto> listaProduto = ProdutoFacade.buscarTodosApenasIdNome();
+                            List<Estado> listaEstado = EstadoFacade.buscarTodos();
+                            List<Cidade> listaCidade = CidadeFacade.buscarTodos();
                             RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
                             request.setAttribute("listaTipoAtendimento", listaTipoAtendimento);
                             request.setAttribute("listaProduto", listaProduto);
+                            request.setAttribute("listaEstado", listaEstado);
+                            request.setAttribute("listaCidade", listaCidade);
                             rd.forward(request, response);
                             break;
                         }

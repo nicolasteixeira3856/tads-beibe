@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import com.br.beibe.tads.facade.EstadoFacade;
 import com.br.beibe.tads.bean.Estado;
 import com.br.beibe.tads.exception.CONException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,6 +23,7 @@ import com.br.beibe.tads.exception.CONException;
  */
 public class CidadeDAO {
     private static final String QUERY_BUSCAR_POR_ID = "SELECT id, idfk_estado, nome FROM cidade WHERE id = ?";
+    private static final String QUERY_BUSCAR_TODOS = "SELECT id, idfk_estado, nome FROM cidade";
     private Connection con = null;
     
     public CidadeDAO(Connection con) throws DAOException {
@@ -47,6 +50,28 @@ public class CidadeDAO {
             throw new DAOException("Erro ao buscar cidade: " +
             QUERY_BUSCAR_POR_ID +
             "/ " + id, e);
+        }
+    }
+    
+    public List<Cidade> buscarTodos() throws DAOException, CONException {
+        try (PreparedStatement st = con.prepareStatement(QUERY_BUSCAR_TODOS)) {
+            
+            ResultSet rs = st.executeQuery();
+            List<Cidade> listaCidade = new ArrayList<>();
+            
+            if (rs.next()) {
+                Cidade cidade = new Cidade();
+                cidade.setId(Integer.valueOf(rs.getString("id")));
+                cidade.setNome((rs.getString("nome")));
+                Estado estado = EstadoFacade.buscarPorId(rs.getInt("idfk_estado"));
+                cidade.setEstado(estado);
+                listaCidade.add(cidade);
+            }
+            
+            return listaCidade;
+        }
+        catch(SQLException e) {
+            throw new DAOException("Erro ao listar todos os estados: " + QUERY_BUSCAR_TODOS, e);
         }
     }
 }
