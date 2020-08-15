@@ -21,7 +21,7 @@ import com.br.beibe.tads.facade.CidadeFacade;
  * @author nicol
  */
 public class UsuarioDAO {
-    private static final String QUERY_BUSCAR_LOGIN = "SELECT id, nome, cpf, email, endereco, idfk_cidade, senha, nivel FROM usuario WHERE email = ?";
+    private static final String QUERY_BUSCAR_LOGIN = "SELECT id, nome, cpf, email, endereco, telefone, idfk_cidade, senha, nivel FROM usuario WHERE email = ?";
     private Connection con = null;
     
     public UsuarioDAO(Connection con) throws DAOException {
@@ -43,6 +43,7 @@ public class UsuarioDAO {
                 u.setEmail(rs.getString("email"));
                 u.setSenha(rs.getString("senha"));
                 u.setNivel(Integer.valueOf(rs.getString("nivel")));
+                u.setTelefone(rs.getString("telefone"));
                 Cidade cidade = CidadeFacade.buscarPorId(rs.getInt("idfk_cidade"));
                 u.setCidade(cidade);
             }

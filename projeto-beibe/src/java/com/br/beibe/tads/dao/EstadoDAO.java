@@ -6,7 +6,6 @@
 package com.br.beibe.tads.dao;
 
 import com.br.beibe.tads.bean.Estado;
-import com.br.beibe.tads.bean.TipoAtendimento;
 import com.br.beibe.tads.exception.DAOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -55,7 +54,7 @@ public class EstadoDAO {
             ResultSet rs = st.executeQuery();
             List<Estado> listEstado = new ArrayList<>();
             
-            if (rs.next()) {
+            while (rs.next()) {
                 Estado estado = new Estado();
                 estado.setId(Integer.valueOf(rs.getString("id")));
                 estado.setNome((rs.getString("nome")));

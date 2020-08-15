@@ -66,8 +66,68 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="alterarDados">
-                    <h4 class="mt-2">Messages tab content</h4>
-                    <p>Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit. Donec at erat magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum laoreet. Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus imperdiet. Cum sociis natoque penatibus et magnis.</p>
+                    <h4 class="mt-2">Alterar dados cadastrados</h4>
+                    <jsp:useBean id="usuario" class="com.br.beibe.tads.bean.Usuario" scope="session" />
+                    <jsp:setProperty name="usuario" property="*"/> 
+                    <form>
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="email" class="form-control" value="${usuario.nome}" >
+                        </div>
+                        <div class="form-group">
+                            <label>Endereço</label>
+                            <input type="text" class="form-control" value="${usuario.endereco}"></br>
+                            
+                            <select  class="form-control">
+                                <c:forEach var="lstEstd" items="${requestScope.listaEstado}">
+
+                                        <c:choose>
+                                            <c:when test="${usuario.cidade.estado.id == lstEstd.getId()}">
+                                              <option selected value="${lstEstd.getId()}"> ${lstEstd.getNome()} </option>
+                                            </c:when>
+                                            <c:otherwise>
+                                               <option value="${lstEstd.getId()}"> ${lstEstd.getNome()} </option>
+                                            </c:otherwise>
+                                         </c:choose>
+                                    
+                                </c:forEach>
+                            </select> </br>
+                            
+                            <select  class="form-control">
+                                <c:forEach var="lstCdd" items="${requestScope.listaCidade}">
+
+                                        <c:choose>
+                                            <c:when test="${usuario.cidade.id == lstCdd.getId()}">
+                                              <option selected value="${lstCdd.getId()}"> ${lstCdd.getNome()} </option>
+                                            </c:when>
+                                            <c:otherwise>
+                                               <option value="${lstCdd.getId()}"> ${lstCdd.getNome()} </option>
+                                            </c:otherwise>
+                                         </c:choose>
+                                    
+                                </c:forEach>
+                            </select>
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            
+                            <label>Telefone</label>
+                            <input type="text" class="form-control" value="${usuario.telefone}">
+                                
+                        </div>
+                            
+                        <div class="form-group">
+                            
+                            <label>Senha</label>
+                            <input type="password" class="form-control" placeholder="Digite sua senha atual"></br>
+                            <input type="password" class="form-control" placeholder="Digite sua nova senha"></br>
+                            <input type="password" class="form-control" placeholder="Confirmar nova senha">
+                                
+                        </div>
+                            
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
                 </div>
             </div>
         </div>
