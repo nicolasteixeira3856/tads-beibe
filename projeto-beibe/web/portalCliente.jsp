@@ -31,8 +31,42 @@
                     <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
                 </div>
                 <div class="tab-pane fade" id="novoAtendimento">
-                    <h4 class="mt-2">Profile tab content</h4>
-                    <p>Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.</p>
+                    <div style="padding: 50px;">
+                    <form class="mt-5">
+                       <div class="form-row">
+                           <div class="form-group col-md-6">
+
+                           <label for="produto">Produto</label>
+                           <select id="produto" class="form-control">
+                             <option selected>Escolher...</option>
+                             <option>...</option>
+                           </select>
+
+                         </div>
+                         <div class="form-group col-md-6">
+
+                           <label for="atendimento">Tipo de atendimento</label>
+                           <select id="atendimento" class="form-control">
+                             <option selected>Escolher...</option>
+                             <option>...</option>
+                           </select>
+
+                         </div>
+                       </div>
+                               <div class="form-row">
+                         <div class="form-group col-md-12">
+                          <label for="descricao">Descrição</label>
+                         <textarea class="form-control" id="descricao" style="height: 250px;"></textarea>
+                         </div>
+                       </div>
+
+                        <div class="mx-auto">
+                       <button type="submit" class="btn btn-primary btn-lg" style="background-color: #57ba85; border-color:#57ba85;" >Enviar</button>
+                       </div>
+                    
+                    </form>
+                   
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="alterarDados">
                     <h4 class="mt-2">Messages tab content</h4>
