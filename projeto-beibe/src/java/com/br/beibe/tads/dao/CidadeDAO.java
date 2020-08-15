@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class CidadeDAO {
     private static final String QUERY_BUSCAR_POR_ID = "SELECT id, idfk_estado, nome FROM cidade WHERE id = ?";
-    private static final String QUERY_BUSCAR_TODOS = "SELECT id, idfk_estado, nome FROM cidade";
+    private static final String QUERY_BUSCAR_TODOS = "SELECT * FROM cidade";
     private Connection con = null;
     
     public CidadeDAO(Connection con) throws DAOException {
@@ -59,11 +59,11 @@ public class CidadeDAO {
             ResultSet rs = st.executeQuery();
             List<Cidade> listaCidade = new ArrayList<>();
             
-            if (rs.next()) {
+            while (rs.next()) {
                 Cidade cidade = new Cidade();
                 cidade.setId(Integer.valueOf(rs.getString("id")));
                 cidade.setNome((rs.getString("nome")));
-                Estado estado = EstadoFacade.buscarPorId(rs.getInt("idfk_estado"));
+                Estado estado = EstadoFacade.buscarPorId(Integer.valueOf(rs.getString("idfk_estado")));
                 cidade.setEstado(estado);
                 listaCidade.add(cidade);
             }

@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
                             List<TipoAtendimento> listaTipoAtendimento = TipoAtendimentoFacade.buscaTodos();
                             List<Produto> listaProduto = ProdutoFacade.buscarTodosApenasIdNome();
                             List<Estado> listaEstado = EstadoFacade.buscarTodos();
-                            List<Cidade> listaCidade = CidadeFacade.buscarTodos();
+                            List<Cidade> listaCidade = CidadeFacade.buscarTodos();                           
                             RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
                             request.setAttribute("listaTipoAtendimento", listaTipoAtendimento);
                             request.setAttribute("listaProduto", listaProduto);
