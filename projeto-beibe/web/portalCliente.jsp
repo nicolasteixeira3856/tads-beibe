@@ -11,7 +11,7 @@
     scope="request" />
     <jsp:forward page="index.jsp" />
 </c:if>
-<c:if test="${sessionScope.usuarioNivel != 3}">
+<c:if test="${sessionScope.usuario.getNivel() != 3}">
     <c:set var="mensagem" value="Você não tem acesso o suficiente"
     scope="request" />
     <jsp:forward page="index.jsp" />
@@ -32,7 +32,7 @@
                 </div>
                 <div class="tab-pane fade" id="novoAtendimento">
                     <div style="padding: 50px;">
-                        <form class="mt-5">
+                        <form class="mt-2">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="produto">Produto</label>

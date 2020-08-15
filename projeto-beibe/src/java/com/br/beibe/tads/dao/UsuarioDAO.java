@@ -11,13 +11,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.br.beibe.tads.bean.Usuario;
+import com.br.beibe.tads.bean.Cidade;
+import com.br.beibe.tads.exception.CONException;
+import com.br.beibe.tads.facade.CidadeFacade;
+
 
 /**
  *
  * @author nicol
  */
 public class UsuarioDAO {
-    private static final String QUERY_BUSCAR_LOGIN = "SELECT id, nome, cpf, email, endereco, senha, nivel FROM usuario WHERE email = ?";
+    private static final String QUERY_BUSCAR_LOGIN = "SELECT id, nome, cpf, email, endereco, idfk_cidade, senha, nivel FROM usuario WHERE email = ?";
     private Connection con = null;
     
     public UsuarioDAO(Connection con) throws DAOException {
@@ -27,16 +31,20 @@ public class UsuarioDAO {
         this.con = con;
     }
     
-    public Usuario buscarPorEmail(String email) throws DAOException {
+    public Usuario buscarPorEmail(String email) throws DAOException, CONException {
         try (PreparedStatement st = con.prepareStatement(QUERY_BUSCAR_LOGIN)) {
             st.setString(1, email);
             ResultSet rs = st.executeQuery();
             Usuario u = new Usuario();
             if (rs.next()) {
                 u.setId(Integer.valueOf(rs.getString("id")));
+                u.setNome(rs.getString("nome"));
+                u.setEndereco(rs.getString("endereco"));
                 u.setEmail(rs.getString("email"));
                 u.setSenha(rs.getString("senha"));
                 u.setNivel(Integer.valueOf(rs.getString("nivel")));
+                Cidade cidade = CidadeFacade.buscarPorId(rs.getInt("idfk_cidade"));
+                u.setCidade(cidade);
             }
             return u;
         }

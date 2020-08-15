@@ -53,13 +53,13 @@ public class LoginServlet extends HttpServlet {
         try {
             Usuario usuario = new Usuario();
             usuario = UsuarioFacade.buscarPorEmail(email);
-            senha = MD5.MD5Transformed(senha);
+            senha = MD5.MD5Transformed(senha);  
             
             if (senha.equals(usuario.getSenha())) {
-                HttpSession session = request.getSession(true);
+                HttpSession session = request.getSession();
+                usuario.setSenha(null);
                 session.setAttribute("logado", true);
-                session.setAttribute("usuarioId", usuario.getId());
-                session.setAttribute("usuarioNivel", usuario.getNivel());
+                session.setAttribute("usuario", usuario);
                 switch (usuario.getNivel()) {
                     case 1:
                         {
@@ -79,7 +79,6 @@ public class LoginServlet extends HttpServlet {
                             request.setAttribute("listaTipoAtendimento", listaTipoAtendimento);
                             request.setAttribute("listaProduto", listaProduto);
                             rd.forward(request, response);
-//                            response.sendRedirect("portalCliente.jsp");
                             break;
                         }
                 }
