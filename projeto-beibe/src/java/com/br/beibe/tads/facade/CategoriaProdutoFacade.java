@@ -17,8 +17,7 @@ import com.br.beibe.tads.factory.ConnectionFactory;
  */
 public class CategoriaProdutoFacade {
     public static CategoriaProduto buscarPorId(int id) throws DAOException, CONException {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
+        try (ConnectionFactory con = new ConnectionFactory()) {
             CategoriaProdutoDAO categoriaProdutoDAO = new CategoriaProdutoDAO(con.getConnection());
             return categoriaProdutoDAO.buscarPorId(id);
         } catch (DAOException e) {

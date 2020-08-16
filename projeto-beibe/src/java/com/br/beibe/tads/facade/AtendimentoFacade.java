@@ -20,8 +20,7 @@ import java.util.List;
 public class AtendimentoFacade {
     
     public static List<Atendimento> buscarTodosPorIdUsuario(Usuario usuario) throws DAOException, CONException {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
+        try (ConnectionFactory con = new ConnectionFactory()) {
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO(con.getConnection());
             return atendimentoDAO.buscarTodosPorIdUsuario(usuario);
         } catch (DAOException e) {
@@ -31,8 +30,7 @@ public class AtendimentoFacade {
         }
     }
     public static void criarNovoAtendimento(Atendimento atendimento) throws DAOException, CONException {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
+        try (ConnectionFactory con = new ConnectionFactory()) {
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO(con.getConnection());
             atendimentoDAO.inserir(atendimento);
         } catch (DAOException e) {

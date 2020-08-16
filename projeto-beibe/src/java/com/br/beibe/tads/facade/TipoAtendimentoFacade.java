@@ -19,8 +19,7 @@ import com.br.beibe.tads.factory.ConnectionFactory;
 public class TipoAtendimentoFacade {
     
     public static TipoAtendimento buscarPorId(int id) throws DAOException, CONException {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
+        try (ConnectionFactory con = new ConnectionFactory()) {
             TipoAtendimentoDAO tipoAtendimentoDAO = new TipoAtendimentoDAO(con.getConnection());
             return tipoAtendimentoDAO.buscarPorId(id);
         } catch (DAOException e) {
@@ -31,8 +30,7 @@ public class TipoAtendimentoFacade {
     }
     
     public static List<TipoAtendimento> buscaTodos() throws DAOException, CONException {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
+        try (ConnectionFactory con = new ConnectionFactory()) {
             TipoAtendimentoDAO tipoAtendimentoDAO = new TipoAtendimentoDAO(con.getConnection());
             return tipoAtendimentoDAO.buscarTodos();
         } catch (DAOException e) {

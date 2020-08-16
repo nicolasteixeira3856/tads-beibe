@@ -54,39 +54,59 @@ public class AtendimentoServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/erro.jsp");
             rd.forward(request, response);
             return;
-        } 
+        }
         
-        if (action.equals("novoAtendimento")) {
-            try {
-                String tipoAtendimentoJsp = request.getParameter("tipoAtendimento");
-                String produtoJsp = request.getParameter("produto");
-                String descricao = request.getParameter("descricao");
-                
-                HttpSession session = request.getSession();
-                Usuario usuario = (Usuario) session.getAttribute("usuario");
-                
-                int idTipoAtendimento = Integer.parseInt(tipoAtendimentoJsp);
-                int idProduto = Integer.parseInt(produtoJsp);
-                int idStatus = 1;
-                
-                TipoAtendimento tipoAtendimento = TipoAtendimentoFacade.buscarPorId(idTipoAtendimento);
-                Produto produto = ProdutoFacade.buscarPorId(idProduto);
-                AtendimentoStatus atendimentoStatus = AtendimentoStatusFacade.buscarPorId(idStatus);
-                Atendimento atendimento = new Atendimento();
-                atendimento.setProduto(produto);
-                atendimento.setStatus(atendimentoStatus);
-                atendimento.setTipoAtendimento(tipoAtendimento);
-                atendimento.setUsuario(usuario);
-                atendimento.setDescricao(descricao);
-                AtendimentoFacade.criarNovoAtendimento(atendimento);
-                
-                session.setAttribute("mensagemSucesso", "Novo atendimento cadastrado com sucesso");
-                response.sendRedirect("portalCliente.jsp");
-            } catch (NumberFormatException | DAOException | CONException ex) {
-                request.setAttribute("mensagemErro", ex.getMessage());
-                RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
-                rd.forward(request, response);
-            }
+        switch (action) {
+            case "novoAtendimento": 
+                {
+                    try {
+                       String tipoAtendimentoJsp = request.getParameter("tipoAtendimento");
+                       String produtoJsp = request.getParameter("produto");
+                       String descricao = request.getParameter("descricao");
+
+                        if (tipoAtendimentoJsp.isEmpty() || produtoJsp.isEmpty() || descricao.isEmpty()) {
+                            request.setAttribute("mensagem", "Nenhum campo pode estar vazio");
+                            RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalCliente.jsp");
+                            rd.forward(request, response);
+                            return;
+                        }
+
+                       HttpSession session = request.getSession();
+                       Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+                       int idTipoAtendimento = Integer.parseInt(tipoAtendimentoJsp);
+                       int idProduto = Integer.parseInt(produtoJsp);
+                       int idStatus = 1;
+
+                       TipoAtendimento tipoAtendimento = TipoAtendimentoFacade.buscarPorId(idTipoAtendimento);
+                       Produto produto = ProdutoFacade.buscarPorId(idProduto);
+                       AtendimentoStatus atendimentoStatus = AtendimentoStatusFacade.buscarPorId(idStatus);
+                       Atendimento atendimento = new Atendimento();
+                       atendimento.setProduto(produto);
+                       atendimento.setStatus(atendimentoStatus);
+                       atendimento.setTipoAtendimento(tipoAtendimento);
+                       atendimento.setUsuario(usuario);
+                       atendimento.setDescricao(descricao);
+                       AtendimentoFacade.criarNovoAtendimento(atendimento);
+
+                       session.setAttribute("mensagemSucesso", "Novo atendimento cadastrado com sucesso");
+                       response.sendRedirect("modules/cliente/portalCliente.jsp");
+                       return;
+                   } catch (NumberFormatException | DAOException | CONException ex) {
+                       request.setAttribute("mensagemErro", ex.getMessage());
+                       RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalCliente.jsp");
+                       rd.forward(request, response);
+                       return;
+                   }
+                }
+            default:
+                {
+                    request.setAttribute("mensagem", "Erro ao encontrar a action: " + action);
+                    request.setAttribute("pagina", "index.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("erro.jsp");
+                    rd.forward(request, response);
+                }
+
         }
     }
 

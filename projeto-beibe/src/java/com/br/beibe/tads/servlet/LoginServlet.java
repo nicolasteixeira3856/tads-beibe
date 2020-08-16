@@ -13,24 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.br.beibe.tads.util.MD5;
 import com.br.beibe.tads.facade.UsuarioFacade;
-import com.br.beibe.tads.facade.TipoAtendimentoFacade;
-import com.br.beibe.tads.facade.ProdutoFacade;
-import com.br.beibe.tads.facade.EstadoFacade;
-import com.br.beibe.tads.facade.CidadeFacade;
 import com.br.beibe.tads.bean.Usuario;
-import com.br.beibe.tads.bean.Produto;
-import com.br.beibe.tads.bean.Estado;
-import com.br.beibe.tads.bean.Cidade;
 import com.br.beibe.tads.exception.CONException;
 import com.br.beibe.tads.exception.DAOException;
-import com.br.beibe.tads.bean.TipoAtendimento;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
-import com.br.beibe.tads.bean.Atendimento;
-import com.br.beibe.tads.facade.AtendimentoFacade;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  *
@@ -52,12 +39,14 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
+        
         if (email.isEmpty() || senha.isEmpty()) {
             request.setAttribute("mensagem", "Nenhum campo pode estar vazio");
             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
             return;
         }
+        
         try {
             Usuario usuario = new Usuario();
             usuario = UsuarioFacade.buscarPorEmail(email);
@@ -72,31 +61,30 @@ public class LoginServlet extends HttpServlet {
                     case 1:
                         {
                             response.sendRedirect("portalGerente.jsp");
-                            break;
+                            return;
                         }
                     case 2:
                         {
                             response.sendRedirect("portalFuncionario.jsp");
-                            break;
+                            return;
                         }
-                    default:
+                    case 3:
                         {
-                            List<TipoAtendimento> listaTipoAtendimento = TipoAtendimentoFacade.buscaTodos();
-                            List<Produto> listaProduto = ProdutoFacade.buscarTodosApenasIdNome();
-                            List<Estado> listaEstado = EstadoFacade.buscarTodos();
-                            List<Cidade> listaCidade = CidadeFacade.buscarTodos();
-                            List<Atendimento> listaAtendimento = AtendimentoFacade.buscarTodosPorIdUsuario(usuario);
-                            RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
-                            request.setAttribute("listaTipoAtendimento", listaTipoAtendimento);
-                            request.setAttribute("listaProduto", listaProduto);
-                            request.setAttribute("listaEstado", listaEstado);
-                            request.setAttribute("listaCidade", listaCidade);
-                            request.setAttribute("listaAtendimento", listaAtendimento);                            
+                            response.sendRedirect("modules/cliente/portalCliente.jsp");
+                            return;
+                        }
+                    default: 
+                        {
+                            request.setAttribute("mensagem", "Não foi possível identificar usuário!");
+                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                             rd.forward(request, response);
-                            break;
+                            return;
                         }
                 }
             }
+            request.setAttribute("mensagem", "E-mail ou senha incorretos!");
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
         } catch (DAOException | CONException ex) {
             request.setAttribute("mensagem", ex.getMessage());
             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");

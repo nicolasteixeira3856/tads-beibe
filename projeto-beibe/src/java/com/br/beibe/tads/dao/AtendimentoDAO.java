@@ -50,16 +50,12 @@ public class AtendimentoDAO {
                 atendimento.setId(Integer.valueOf(rs.getString("id")));
                 atendimento.setDataCriacao(rs.getDate("data_criacao"));
                 atendimento.setUsuario(usuario);
-                
                 AtendimentoStatus atendimentoStatus = AtendimentoStatusFacade.buscarPorId(Integer.valueOf(rs.getString("idfk_status")));
                 atendimento.setStatus(atendimentoStatus);
-                
                 Produto produto = ProdutoFacade.buscarPorId(Integer.valueOf(rs.getString("idfk_produto")));
-                atendimento.setProduto(produto);
-                
+                atendimento.setProduto(produto); 
                 TipoAtendimento tipoAtendimento = TipoAtendimentoFacade.buscarPorId(Integer.valueOf(rs.getString("idfk_tipo_atendimento")));
                 atendimento.setTipoAtendimento(tipoAtendimento);
-                
                 listaAtendimento.add(atendimento);
             }
             

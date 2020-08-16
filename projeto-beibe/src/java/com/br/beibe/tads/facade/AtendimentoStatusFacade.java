@@ -17,8 +17,7 @@ import com.br.beibe.tads.factory.ConnectionFactory;
  */
 public class AtendimentoStatusFacade {
     public static AtendimentoStatus buscarPorId(int id) throws DAOException, CONException {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
+        try (ConnectionFactory con = new ConnectionFactory()) {
             AtendimentoStatusDAO atendimentoStatusDAO = new AtendimentoStatusDAO(con.getConnection());
             return atendimentoStatusDAO.buscarPorId(id);
         } catch (DAOException e) {

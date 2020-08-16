@@ -18,8 +18,7 @@ import java.util.List;
  */
 public class EstadoFacade {
     public static Estado buscarPorId(int id) throws DAOException, CONException {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
+        try (ConnectionFactory con = new ConnectionFactory()) {
             EstadoDAO estadoDAO = new EstadoDAO(con.getConnection());
             return estadoDAO.buscaPorId(id);
         } catch (DAOException e) {
@@ -30,8 +29,7 @@ public class EstadoFacade {
     }
     
     public static List<Estado> buscarTodos() throws DAOException, CONException {
-        try {
-            ConnectionFactory con = new ConnectionFactory();
+        try (ConnectionFactory con = new ConnectionFactory()) {
             EstadoDAO estadoDAO = new EstadoDAO(con.getConnection());
             return estadoDAO.buscarTodos();
         } catch (DAOException e) {

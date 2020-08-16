@@ -1,6 +1,6 @@
 <%-- 
-    Document   : portalAtendente
-    Created on : 14/08/2020, 20:36:42
+    Document   : portalGerente
+    Created on : 16/08/2020, 11:31:39
     Author     : nicol
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Funcionário!</h1>
+        <h1>Hello World!</h1>
     </body>
 </html>
