@@ -25,7 +25,7 @@ and open the template in the editor.
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                     <div class="cadastro">
-                        Ainda não possui uma conta? <a href="#">Cadastre-se</a>
+                        Ainda não possui uma conta? <a href="cadastro.jsp">Cadastre-se</a>
                     </div>
                 </form>
             </div>

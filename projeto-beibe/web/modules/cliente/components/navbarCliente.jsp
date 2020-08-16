@@ -13,9 +13,6 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/projeto-beibe/ClienteServlet?action=dashboard">Dashboard<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/projeto-beibe/ClienteServlet?action=listarAtendimentos">Atendimentos<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
