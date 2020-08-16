@@ -8,10 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="css/erro.css">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <section class="centered">
+            <h1 class="h1Main">ERRO!</h1>
+            <div class="container">
+                <h1 class="color">${requestScope.mensagem}</h1>
+                <h3 class="alignCenter"><a class="linkPagina" href="${requestScope.pagina}">Clique aqui para retornar</a></h3>
+            </div>
+        </section>
     </body>
 </html>

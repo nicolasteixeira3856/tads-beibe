@@ -9,11 +9,17 @@
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/web/js/validacao.js</file>
         </group>
         <group>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/AtendimentoServlet.java</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/cliente/components/navbarCliente.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/ClienteServlet.java</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/cliente/portalCliente.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/LoginServlet.java</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/cadastrarCategoria.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/gerente/listarTodosAtendimentos.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/cliente/maisInformacoesAtendimento.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/listarAtendimentosAbertos.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/listarTodosAtendimentos.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/gerente/listarAtendimentosAbertos.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/cadastrarProduto.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/maisInformacoesAtendimentoResolucao.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/listarCategorias.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/listarProdutos.jsp</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/gerente/cadastrarFuncionariosGerentes.jsp</file>
         </group>
     </open-files>
 </project-private>

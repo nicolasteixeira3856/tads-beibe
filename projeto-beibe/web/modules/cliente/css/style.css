@@ -12,6 +12,10 @@ and open the template in the editor.
     background-color: #57ba85 !important;
 }
 
+.corError {
+    background-color: #c91616;
+}
+
 .colorSpan {
     color: #ffffff !important;
 }

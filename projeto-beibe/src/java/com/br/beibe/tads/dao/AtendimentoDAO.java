@@ -28,7 +28,7 @@ import com.br.beibe.tads.bean.Usuario;
  */
 public class AtendimentoDAO {
     
-    private static final String QUERY_NOVO_ATENDIMENTO = "INSERT INTO atendimento (idfk_usuario, idfk_status, idfk_produto, idfk_tipo_atendimento, descricao) VALUES (?, ?, ?, ?, ?)";
+    private static final String QUERY_NOVO_ATENDIMENTO = "INSERT INTO atendimento (idfkk_usuario, idfk_status, idfk_produto, idfk_tipo_atendimento, descricao) VALUES (?, ?, ?, ?, ?)";
     private static final String QUERY_BUSCA_TODOS_POR_ID_USUARIO = "SELECT id, data_criacao, idfk_usuario, idfk_status, idfk_produto, idfk_tipo_atendimento FROM atendimento WHERE idfk_usuario = ? ORDER BY data_criacao DESC";
     private Connection con = null;
     

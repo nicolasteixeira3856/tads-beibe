@@ -21,7 +21,7 @@
 <html>
     <head>
         <%@include file="/imports.jsp" %>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="modules/cliente/css/style.css">
     </head>
     <body>
         <%@include file="components/navbarCliente.jsp" %>
@@ -34,10 +34,10 @@
                 </div>
                 <c:set var="mensagemSucesso" value="" scope="request"/>
             </c:if>
-            <c:if test="${not empty sessionScope.mensagemErro}">
-                <div class="alert alert-error">
-                    <strong><c:out value="${sessionScope.mensagemErro}"/></strong><br>
-                    <span><a href="/projeto-beibe/ClienteServlet?action=listarAtendimentos">Clique aqui para retornar a página inicial</a></span>
+            <c:if test="${not empty requestScope.mensagemErro}">
+                <div class="alert alert-error text-center corError">
+                    <strong class="colorSpan"><c:out value="${requestScope.mensagemErro}"/></strong><br>
+                    <span><a class="spanLinkMsg" href="/projeto-beibe/ClienteServlet?action=listarAtendimentos">Clique aqui para retornar a página inicial</a></span>
                 </div>
                 <c:set var="mensagemErro" value="" scope="request"/>
             </c:if>

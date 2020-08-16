@@ -93,7 +93,7 @@ public class AtendimentoServlet extends HttpServlet {
                        return;
                    } catch (NumberFormatException | DAOException | CONException ex) {
                        request.setAttribute("mensagemErro", ex.getMessage());
-                       RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalCliente.jsp");
+                       RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalClienteMsg.jsp");
                        rd.forward(request, response);
                        return;
                    }
