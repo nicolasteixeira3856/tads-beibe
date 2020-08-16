@@ -5,6 +5,7 @@
  */
 package com.br.beibe.tads.servlet;
 
+import com.br.beibe.tads.bean.Atendimento;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +17,8 @@ import com.br.beibe.tads.facade.UsuarioFacade;
 import com.br.beibe.tads.bean.Usuario;
 import com.br.beibe.tads.exception.CONException;
 import com.br.beibe.tads.exception.DAOException;
+import com.br.beibe.tads.facade.AtendimentoFacade;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 
@@ -70,7 +73,10 @@ public class LoginServlet extends HttpServlet {
                         }
                     case 3:
                         {
-                            response.sendRedirect("modules/cliente/portalCliente.jsp");
+                            List<Atendimento> listaAtendimento = AtendimentoFacade.buscarTodosPorIdUsuario(usuario);
+                            request.setAttribute("listaAtendimento", listaAtendimento);  
+                            RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/listarAtendimentos.jsp");
+                            rd.forward(request, response);
                             return;
                         }
                     default: 

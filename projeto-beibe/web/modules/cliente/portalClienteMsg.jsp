@@ -1,9 +1,8 @@
 <%-- 
-    Document   : portalCliente
-    Created on : 16/08/2020, 11:30:57
+    Document   : portalClienteMsg
+    Created on : 16/08/2020, 15:53:31
     Author     : nicol
 --%>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:if test="${empty sessionScope.logado}" >
@@ -22,23 +21,26 @@
 <html>
     <head>
         <%@include file="/imports.jsp" %>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <%@include file="components/navbarCliente.jsp" %>
         <div class="container">
+            <br>
             <c:if test="${not empty sessionScope.mensagemSucesso}">
-                <div class="alert alert-success">
-                    <strong><c:out value="${sessionScope.mensagemSucesso}"/></strong>
+                <div class="alert alert-success text-center corPrincipal">
+                    <strong class="colorSpan"><c:out value="${sessionScope.mensagemSucesso}"/></strong><br>
+                    <span><a class="spanLinkMsg" href="/projeto-beibe/ClienteServlet?action=listarAtendimentos">Clique aqui para retornar a página inicial</a></span>
                 </div>
                 <c:set var="mensagemSucesso" value="" scope="request"/>
             </c:if>
             <c:if test="${not empty sessionScope.mensagemErro}">
-                <div class="alert alert-success">
-                    <strong><c:out value="${sessionScope.mensagemErro}"/></strong>
+                <div class="alert alert-error">
+                    <strong><c:out value="${sessionScope.mensagemErro}"/></strong><br>
+                    <span><a href="/projeto-beibe/ClienteServlet?action=listarAtendimentos">Clique aqui para retornar a página inicial</a></span>
                 </div>
                 <c:set var="mensagemErro" value="" scope="request"/>
             </c:if>
-            <h1>Bem vindo Cliente</h1> 
         </div>
     </body>
     <script>

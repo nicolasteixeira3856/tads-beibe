@@ -13,10 +13,14 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
+<<<<<<< HEAD
                 <a id="dashboard" class="nav-link" href="/projeto-beibe/ClienteServlet?action=dashboard">Dashboard<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a id="listarAtendimentos" class="nav-link" href="/projeto-beibe/ClienteServlet?action=listarAtendimentos">Atendimentos<span class="sr-only">(current)</span></a>
+=======
+                <a class="nav-link" href="/projeto-beibe/ClienteServlet?action=listarAtendimentos">Atendimentos<span class="sr-only">(current)</span></a>
+>>>>>>> 78a5d9f4caa6354373a7f77d2b510555941cc4db
             </li>
             <li class="nav-item">
                 <a id="novoAtendimento" class="nav-link" href="/projeto-beibe/ClienteServlet?action=novoAtendimento">Novo atendimento</a>

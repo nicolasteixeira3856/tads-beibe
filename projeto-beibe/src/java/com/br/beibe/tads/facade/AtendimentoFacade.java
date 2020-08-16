@@ -29,6 +29,7 @@ public class AtendimentoFacade {
             throw new CONException("Não foi possível se conectar ao sistema! Tente novamente mais tarde. ", e);
         }
     }
+    
     public static void criarNovoAtendimento(Atendimento atendimento) throws DAOException, CONException {
         try (ConnectionFactory con = new ConnectionFactory()) {
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO(con.getConnection());

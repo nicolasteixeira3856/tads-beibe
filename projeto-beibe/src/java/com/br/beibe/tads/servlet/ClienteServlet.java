@@ -58,12 +58,6 @@ public class ClienteServlet extends HttpServlet {
         }
         
         switch (action) {
-            case "dashboard":
-            {
-                RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalCliente.jsp");
-                rd.forward(request, response);
-                return;
-            }
             case "listarAtendimentos":
             {
                 try{
@@ -76,7 +70,7 @@ public class ClienteServlet extends HttpServlet {
                     return;
                 } catch (DAOException | CONException e) {
                     request.setAttribute("mensagemErro", e.getMessage());
-                    RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalCliente.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalClienteMsg.jsp");
                     rd.forward(request, response);
                     return;
                 }
@@ -93,7 +87,7 @@ public class ClienteServlet extends HttpServlet {
                     return;
                 } catch (DAOException | CONException e) {
                     request.setAttribute("mensagemErro", e.getMessage());
-                    RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalCliente.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalClienteMsg.jsp");
                     rd.forward(request, response);
                     return;
                 }
@@ -110,7 +104,7 @@ public class ClienteServlet extends HttpServlet {
                     return;
                 } catch (DAOException | CONException e) {
                     request.setAttribute("mensagemErro", e.getMessage());
-                    RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalCliente.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalClienteMsg.jsp");
                     rd.forward(request, response);
                     return;
                 }

@@ -23,8 +23,6 @@ import com.br.beibe.tads.facade.TipoAtendimentoFacade;
 import com.br.beibe.tads.bean.Usuario;
 import com.br.beibe.tads.exception.CONException;
 import com.br.beibe.tads.exception.DAOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -66,7 +64,7 @@ public class AtendimentoServlet extends HttpServlet {
 
                         if (tipoAtendimentoJsp.isEmpty() || produtoJsp.isEmpty() || descricao.isEmpty()) {
                             request.setAttribute("mensagem", "Nenhum campo pode estar vazio");
-                            RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalCliente.jsp");
+                            RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalClienteMsg.jsp");
                             rd.forward(request, response);
                             return;
                         }
@@ -90,7 +88,8 @@ public class AtendimentoServlet extends HttpServlet {
                        AtendimentoFacade.criarNovoAtendimento(atendimento);
 
                        session.setAttribute("mensagemSucesso", "Novo atendimento cadastrado com sucesso");
-                       response.sendRedirect("modules/cliente/portalCliente.jsp");
+                       session.setAttribute("pagina", "modules/cliente/listarAtendimentos.jsp");
+                       response.sendRedirect("modules/cliente/portalClienteMsg.jsp");
                        return;
                    } catch (NumberFormatException | DAOException | CONException ex) {
                        request.setAttribute("mensagemErro", ex.getMessage());
