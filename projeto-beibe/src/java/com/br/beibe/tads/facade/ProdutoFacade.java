@@ -17,6 +17,19 @@ import java.util.List;
  * @author nicol
  */
 public class ProdutoFacade {
+    
+    public static Produto buscarPorId(int id) throws DAOException, CONException {
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+            ProdutoDAO produtoDAO = new ProdutoDAO(con.getConnection());
+            return produtoDAO.buscarPorId(id);
+        } catch (DAOException e) {
+            throw new DAOException("Não foi possível encontrar o produto de id: " + "/ " + id, e);
+        } catch (CONException e) {
+            throw new CONException("Não foi possível se conectar ao sistema! Tente novamente mais tarde. ", e);
+        }
+    }
+    
      public static List<Produto> buscarTodosApenasIdNome() throws DAOException, CONException {
         try {
             ConnectionFactory con = new ConnectionFactory();

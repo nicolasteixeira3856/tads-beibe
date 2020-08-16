@@ -14,14 +14,7 @@
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/bean/AtendimentoStatus.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/bean/TipoAtendimento.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/dao/AtendimentoDAO.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/ClienteServeletAtendimento.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/LoginServlet.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/facade/ProdutoFacade.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/atendimento.jsp</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/factory/ConnectionFactory.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/dao/AtendimentoStatusDAO.java</file>
+            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/LoginServlet.java</file>
         </group>
     </open-files>
 </project-private>

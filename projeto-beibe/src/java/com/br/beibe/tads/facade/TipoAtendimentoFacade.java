@@ -16,7 +16,20 @@ import com.br.beibe.tads.factory.ConnectionFactory;
  *
  * @author nicol
  */
-public class TipoAtendimentoFacade { 
+public class TipoAtendimentoFacade {
+    
+    public static TipoAtendimento buscarPorId(int id) throws DAOException, CONException {
+        try {
+            ConnectionFactory con = new ConnectionFactory();
+            TipoAtendimentoDAO tipoAtendimentoDAO = new TipoAtendimentoDAO(con.getConnection());
+            return tipoAtendimentoDAO.buscarPorId(id);
+        } catch (DAOException e) {
+            throw new DAOException("Não foi possível encontrar o tipo de atendimento para o id: " + "/ " + id, e);
+        } catch (CONException e) {
+            throw new CONException("Não foi possível se conectar ao sistema! Tente novamente mais tarde. ", e);
+        }
+    }
+    
     public static List<TipoAtendimento> buscaTodos() throws DAOException, CONException {
         try {
             ConnectionFactory con = new ConnectionFactory();

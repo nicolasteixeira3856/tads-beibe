@@ -5,16 +5,11 @@
  */
 package com.br.beibe.tads.dao;
 
-import com.br.beibe.tads.bean.Atendimento;
-import com.br.beibe.tads.bean.Produto;
 import com.br.beibe.tads.exception.DAOException;
-import com.br.beibe.tads.facade.ProdutoFacade;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import com.br.beibe.tads.bean.Atendimento;
 
 /**
  *
@@ -22,27 +17,28 @@ import java.util.List;
  */
 public class AtendimentoDAO {
     
-    private static final String QUERY_BUSCAR_ID_PRODUTO_TIPO_ATENDIMETO = "SELECT id,FROM produto , SELECT id,FROM tipo_atendimeto";
+    private static final String QUERY_NOVO_ATENDIMENTO = "INSERT INTO atendimento (idfk_usuario, idfk_status, idfk_produto, idfk_tipo_atendimento, descricao) VALUES (?, ?, ?, ?, ?)";
     private Connection con = null;
     
     public AtendimentoDAO(Connection con) throws DAOException {
         if (con == null) {
-            throw new DAOException("Conexão nula ao criar TipoAtendimentoDAO.");
+            throw new DAOException("Conexão nula ao criar AtendimentoDAO.");
         }
         this.con = con;
     }
     
-    public List<Atendimento> buscarTodosApenasIdNome() throws DAOException {
-        try (PreparedStatement st = con.prepareStatement(QUERY_BUSCAR_TODOS_APENAS_ID_NOME)) {
-            
-            ResultSet rs = st.executeQuery();
-            List<Atendimento> listAtendimento = new ArrayList<>();
-       
-            return listProduto;
+    public void inserir(Atendimento atendimento) throws DAOException {
+        try (PreparedStatement st = con.prepareStatement(QUERY_NOVO_ATENDIMENTO)) {
+            st.setInt(1, atendimento.getUsuario().getId());
+            st.setInt(2, atendimento.getStatus().getId());
+            st.setInt(3, atendimento.getProduto().getId());
+            st.setInt(4, atendimento.getTipoAtendimento().getId());
+            st.setString(5, atendimento.getDescricao());
+            st.executeUpdate();
         }
         catch(SQLException e) {
-            throw new DAOException("Erro ao listar todos os produtos por nome e id: " + QUERY_BUSCAR_TODOS_APENAS_ID_NOME, e);
+            throw new DAOException("Erro inserindo novo atendimento: " +
+            QUERY_NOVO_ATENDIMENTO , e);
         }
     }
-    
 }

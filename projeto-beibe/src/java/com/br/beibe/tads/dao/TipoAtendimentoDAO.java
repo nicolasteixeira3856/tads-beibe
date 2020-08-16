@@ -20,6 +20,7 @@ import java.sql.SQLException;
  */
 public class TipoAtendimentoDAO {
     private static final String QUERY_BUSCAR_TODOS = "SELECT id, nome FROM tipo_atendimento";
+    private static final String QUERY_BUSCAR_POR_ID = "SELECT id, nome FROM tipo_atendimento WHERE id = ?";
     private Connection con = null;
     
     public TipoAtendimentoDAO(Connection con) throws DAOException {
@@ -27,6 +28,24 @@ public class TipoAtendimentoDAO {
             throw new DAOException("Conexão nula ao criar TipoAtendimentoDAO.");
         }
         this.con = con;
+    }
+    
+    public TipoAtendimento buscarPorId(int id) throws DAOException {
+        try (PreparedStatement st = con.prepareStatement(QUERY_BUSCAR_POR_ID)) {
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            TipoAtendimento ta = new TipoAtendimento();
+            if (rs.next()) {
+                ta.setId(Integer.valueOf(rs.getString("id")));
+                ta.setNome(rs.getString("nome"));
+            }
+            return ta;
+        }
+        catch(SQLException e) {
+            throw new DAOException("Erro ao buscar tipo atendimento: " +
+            QUERY_BUSCAR_POR_ID +
+            "/ " + id, e);
+        }
     }
     
     public List<TipoAtendimento> buscarTodos() throws DAOException {

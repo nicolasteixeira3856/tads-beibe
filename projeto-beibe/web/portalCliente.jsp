@@ -32,11 +32,11 @@
                 </div>
                 <div class="tab-pane fade" id="novoAtendimento">
                     <div style="padding: 50px;">
-                        <form class="mt-2">
+                        <form action="AtendimentoServlet?action=novoAtendimento" method="post" class="mt-2">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="produto">Produto</label>
-                                    <select id="produto" class="form-control">
+                                    <select name="produto" class="form-control">
                                         <option selected>Escolher...</option>
                                          <c:forEach var="prd" items="${requestScope.listaProduto}">
                                             <option value="${prd.getId()}"> ${prd.getNome()} </option>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="atendimento">Tipo de atendimento</label>
-                                    <select id="atendimento" class="form-control">
+                                    <select name="tipoAtendimento" class="form-control">
                                         <option selected>Escolher...</option>
                                         <c:forEach var="tipoAtd" items="${requestScope.listaTipoAtendimento}">
                                             <option value="${tipoAtd.getId()}"> ${tipoAtd.getNome()} </option>
@@ -56,7 +56,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="descricao">Descrição</label>
-                                    <textarea class="form-control" id="descricao" style="height: 250px;"></textarea>
+                                    <textarea class="form-control" name="descricao" style="height: 250px;"></textarea>
                                 </div>
                             </div>
                             <div class="mx-auto">
