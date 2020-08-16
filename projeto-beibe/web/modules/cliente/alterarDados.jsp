@@ -82,7 +82,8 @@
                          </div>
                 <div class="form-group">
                     <label>Telefone</label>
-                    <input type="text" class="form-control" value="${usuario.telefone}"> 
+                    <input type="text" class="form-control telefonecomddd" value="${usuario.telefone}"> 
+                    <input type="hidden" class="telefonesemddd" name="telefone" value="${usuario.telefone}">
                 </div>   
                 <div class="form-group validacao">
                     <label>Senha</label>
