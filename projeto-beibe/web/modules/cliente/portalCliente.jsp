@@ -41,4 +41,9 @@
             <h1>Bem vindo Cliente</h1> 
         </div>
     </body>
+    <script>
+           
+          $("#dashboard").addClass("active");
+              
+    </script>
 </html>

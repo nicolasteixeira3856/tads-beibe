@@ -40,5 +40,10 @@
                 </div>
             </c:forEach>   
         </div>
+        <script>
+           
+          $("#listarAtendimentos").addClass("active");
+              
+        </script>
     </body>
 </html>
