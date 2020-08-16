@@ -9,11 +9,12 @@
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/web/js/validacao.js</file>
         </group>
         <group>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/AtendimentoServlet.java</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/cliente/components/navbarCliente.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/ClienteServlet.java</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/cliente/portalCliente.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/servlet/LoginServlet.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/cadastro.jsp</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/cliente/alterarDados.jsp</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/factory/ConnectionFactory.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/css/cadastro.css</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/css/atendimentoDetalhe.css</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/cliente/novoAtendimento.jsp</file>
         </group>
     </open-files>
 </project-private>
