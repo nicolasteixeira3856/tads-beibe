@@ -34,8 +34,20 @@
             <h5 style="color:red">${mensagemErro}</h5>
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="atendimentos">
-                    <h4 class="mt-2">Home tab content</h4>
-                    <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                    <c:forEach var="atendimento" items="${requestScope.listaAtendimento}">
+                        <div class="card">
+                            <div class="card-body">
+                                ${atendimento.getId()}
+                                ${atendimento.getDataCriacao()}<br>
+                                ${atendimento.getTipoAtendimento().getNome()}<br>
+                                ${atendimento.getStatus().getNome()}<br>                                    
+                                ${atendimento.getProduto().getNome()}
+                             </div>
+                            <div class="card-body text-right">
+                                    <a href="#" class="btn btn-primary">Mais informações</a>
+                            </div>
+                        </div>
+                    </c:forEach>                      
                 </div>
                 <div class="tab-pane fade" id="novoAtendimento">
                     <div>

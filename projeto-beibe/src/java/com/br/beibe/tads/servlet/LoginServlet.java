@@ -27,6 +27,10 @@ import com.br.beibe.tads.bean.TipoAtendimento;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
+import com.br.beibe.tads.bean.Atendimento;
+import com.br.beibe.tads.facade.AtendimentoFacade;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -80,12 +84,14 @@ public class LoginServlet extends HttpServlet {
                             List<TipoAtendimento> listaTipoAtendimento = TipoAtendimentoFacade.buscaTodos();
                             List<Produto> listaProduto = ProdutoFacade.buscarTodosApenasIdNome();
                             List<Estado> listaEstado = EstadoFacade.buscarTodos();
-                            List<Cidade> listaCidade = CidadeFacade.buscarTodos();                           
+                            List<Cidade> listaCidade = CidadeFacade.buscarTodos();
+                            List<Atendimento> listaAtendimento = AtendimentoFacade.buscarTodosPorIdUsuario(usuario);
                             RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
                             request.setAttribute("listaTipoAtendimento", listaTipoAtendimento);
                             request.setAttribute("listaProduto", listaProduto);
                             request.setAttribute("listaEstado", listaEstado);
                             request.setAttribute("listaCidade", listaCidade);
+                            request.setAttribute("listaAtendimento", listaAtendimento);                            
                             rd.forward(request, response);
                             break;
                         }

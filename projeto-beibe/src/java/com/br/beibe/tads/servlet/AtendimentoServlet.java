@@ -81,7 +81,7 @@ public class AtendimentoServlet extends HttpServlet {
                 AtendimentoFacade.criarNovoAtendimento(atendimento);
                 
                 session.setAttribute("mensagemSucesso", "Novo atendimento cadastrado com sucesso");
-                response.sendRedirect("portalGerente.jsp");
+                response.sendRedirect("portalCliente.jsp");
             } catch (NumberFormatException | DAOException | CONException ex) {
                 request.setAttribute("mensagemErro", ex.getMessage());
                 RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
