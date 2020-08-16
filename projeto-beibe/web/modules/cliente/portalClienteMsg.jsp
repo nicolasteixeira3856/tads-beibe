@@ -43,4 +43,9 @@
             </c:if>
         </div>
     </body>
+    <script>
+           
+          $("#dashboard").addClass("active");
+              
+    </script>
 </html>

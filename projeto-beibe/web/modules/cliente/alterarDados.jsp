@@ -22,46 +22,64 @@
 <html>
     <head>
         <%@include file="/imports.jsp" %>
+          <link rel="stylesheet" href="css/cadastro.css">
     </head>
     <body>
         <%@include file="components/navbarCliente.jsp" %>
-        <div class="container">
-            <h4 class="mt-2">Alterar dados cadastrados</h4>
+        <div class="centro">
+             <h4 class="mt-4">Alterar dados cadastrados</h4>
+        </div>
+        <div class="container" style="margin-top: 40px;">
+           
             <jsp:useBean id="usuario" class="com.br.beibe.tads.bean.Usuario" scope="session" />
             <jsp:setProperty name="usuario" property="*"/> 
-            <form>
-                <div class="form-group">
-                    <label>Nome</label>
-                    <input type="text" class="form-control" value="${usuario.nome}" >
-                </div>
-                <div class="form-group">
-                    <label>Endereço</label>
-                    <input type="text" class="form-control" value="${usuario.endereco}"></br> 
-                    <select  class="form-control">
-                        <c:forEach var="lstEstd" items="${requestScope.listaEstado}">
-                            <c:choose>
-                                <c:when test="${usuario.cidade.estado.id == lstEstd.getId()}">
-                                  <option selected value="${lstEstd.getId()}"> ${lstEstd.getNome()} </option>
-                                </c:when>
-                                <c:otherwise>
-                                   <option value="${lstEstd.getId()}"> ${lstEstd.getNome()} </option>
-                                </c:otherwise>
-                             </c:choose>
-                        </c:forEach>
-                    </select> </br>
-                    <select  class="form-control">
-                        <c:forEach var="lstCdd" items="${requestScope.listaCidade}">
-                            <c:choose>
-                                <c:when test="${usuario.cidade.id == lstCdd.getId()}">
-                                  <option selected value="${lstCdd.getId()}"> ${lstCdd.getNome()} </option>
-                                </c:when>
-                                <c:otherwise>
-                                   <option value="${lstCdd.getId()}"> ${lstCdd.getNome()} </option>
-                                </c:otherwise>
-                             </c:choose>
-                        </c:forEach>
-                    </select>
-                </div>
+              <form class="ml-4 mr-4" style="width: 600px;">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <label for="nome">Nome</label>
+                           <input type="text" class="form-control" value="${usuario.nome}" >
+                        </div>
+
+                     </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label for="email">Endereço</label>
+                            <input type="text" class="form-control" value="${usuario.endereco}">
+                          </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                             <label for="estado">Estado</label>
+                              <select  class="form-control">
+                                   <c:forEach var="lstEstd" items="${requestScope.listaEstado}">
+                                       <c:choose>
+                                           <c:when test="${usuario.cidade.estado.id == lstEstd.getId()}">
+                                             <option selected value="${lstEstd.getId()}"> ${lstEstd.getNome()} </option>
+                                           </c:when>
+                                           <c:otherwise>
+                                              <option value="${lstEstd.getId()}"> ${lstEstd.getNome()} </option>
+                                           </c:otherwise>
+                                        </c:choose>
+                                   </c:forEach>
+                               </select>
+                           </div>
+                           <div class="form-group col-md-6">
+                             <label for="estado">Cidade</label>
+                            <select  class="form-control">
+                                <c:forEach var="lstCdd" items="${requestScope.listaCidade}">
+                                    <c:choose>
+                                        <c:when test="${usuario.cidade.id == lstCdd.getId()}">
+                                          <option selected value="${lstCdd.getId()}"> ${lstCdd.getNome()} </option>
+                                        </c:when>
+                                        <c:otherwise>
+                                           <option value="${lstCdd.getId()}"> ${lstCdd.getNome()} </option>
+                                        </c:otherwise>
+                                     </c:choose>
+                                </c:forEach>
+                             </select>
+                           </div>
+
+                         </div>
                 <div class="form-group">
                     <label>Telefone</label>
                     <input type="text" class="form-control" value="${usuario.telefone}"> 
@@ -73,9 +91,16 @@
                     <input type="password" class="form-control confirma_senha" id="valida2" placeholder="Confirmar nova senha">
                     <span id="error"></span>       
                 </div>
-                <button type="submit" class="btn btn-primary" id="botao">Enviar</button>
+                <div class="mx-auto">
+                        <button type="submit" class="btn btn-primary btn-lg" style="background-color: #57ba85; border-color:#57ba85;" >Enviar</button>
+                 </div>
             </form>
         </div>
         <script src="js/validacao.js"></script>
+         <script>
+           
+          $("#alterarDados").addClass("active");
+              
+        </script>
     </body>
 </html>

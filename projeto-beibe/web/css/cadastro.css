@@ -19,10 +19,15 @@ html,body {
     justify-content: center;
 }
 
+.centro{
+   align-items: center;
+   justify-content: center; 
+   text-align: center;
+}
+
  form{
     padding: 15px;
     font-size: 14px;
-    margin-top: 30px;
     background-color: #f5f5f5;
 }
 

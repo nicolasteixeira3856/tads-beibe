@@ -22,12 +22,16 @@
 <html>
     <head>
         <%@include file="/imports.jsp" %>
+         <link rel="stylesheet" href="css/cadastro.css">
     </head>
     <body>
         <%@include file="components/navbarCliente.jsp" %>
-        <div class="container">
-            <div>
-                <form action="AtendimentoServlet?action=novoAtendimento" method="post" class="mt-2">
+        <div class="centro">
+             <h4 class="mt-4">Novo Atendimento</h4>
+        </div>
+        <div class="container" style="margin-top: -40px;">
+            <div style="width:700px;">
+                <form action="AtendimentoServlet?action=novoAtendimento" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="produto">Produto</label>
@@ -60,5 +64,11 @@
                 </form>
             </div>
         </div>
+        <script>
+           
+          $("#novoAtendimento").addClass("active");
+              
+        </script>
     </body>
+    
 </html>
