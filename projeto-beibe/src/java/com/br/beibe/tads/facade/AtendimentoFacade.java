@@ -23,7 +23,7 @@ public class AtendimentoFacade {
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO(con.getConnection());
             atendimentoDAO.inserir(atendimento);
         } catch (DAOException e) {
-            throw new DAOException("Não foi possível criar novo atendimento: ", e);
+            throw new DAOException("Não foi possível criar novo atendimento!", e);
         }
     }
 }

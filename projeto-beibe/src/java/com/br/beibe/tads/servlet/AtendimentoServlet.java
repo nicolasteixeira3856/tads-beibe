@@ -79,10 +79,12 @@ public class AtendimentoServlet extends HttpServlet {
                 atendimento.setUsuario(usuario);
                 atendimento.setDescricao(descricao);
                 AtendimentoFacade.criarNovoAtendimento(atendimento);
-                System.out.println("Cadastrado com suecesseos");
+                
+                session.setAttribute("mensagemSucesso", "Novo atendimento cadastrado com sucesso");
+                response.sendRedirect("portalGerente.jsp");
             } catch (NumberFormatException | DAOException | CONException ex) {
-                request.setAttribute("mensagem", ex.getMessage());
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                request.setAttribute("mensagemErro", ex.getMessage());
+                RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
                 rd.forward(request, response);
             }
         }

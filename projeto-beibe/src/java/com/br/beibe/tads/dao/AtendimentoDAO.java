@@ -17,7 +17,7 @@ import com.br.beibe.tads.bean.Atendimento;
  */
 public class AtendimentoDAO {
     
-    private static final String QUERY_NOVO_ATENDIMENTO = "INSERT INTO atendimento (idfk_usuario, idfk_status, idfk_produto, idfk_tipo_atendimento, descricao) VALUES (?, ?, ?, ?, ?)";
+    private static final String QUERY_NOVO_ATENDIMENTO = "INSERT INTO atendimento (idfk_usuario, idfk_status, idfk_produto, idfk_tipo_atendimento, descricaoo) VALUES (?, ?, ?, ?, ?)";
     private Connection con = null;
     
     public AtendimentoDAO(Connection con) throws DAOException {
