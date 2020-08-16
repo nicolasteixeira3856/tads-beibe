@@ -23,6 +23,7 @@ import com.br.beibe.tads.facade.TipoAtendimentoFacade;
 import com.br.beibe.tads.bean.Usuario;
 import com.br.beibe.tads.exception.CONException;
 import com.br.beibe.tads.exception.DAOException;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -98,6 +99,60 @@ public class AtendimentoServlet extends HttpServlet {
                        return;
                    }
                 }
+            case ("maisInformacoes"):
+            {
+                try {
+                    String id = request.getParameter("id");
+
+                    if (id == null) {
+                        request.setAttribute("mensagem", "Invocação inválida: ID é nulo");
+                        RequestDispatcher rd = request.getRequestDispatcher("/erro.jsp");
+                        rd.forward(request, response);
+                        return;
+                    }
+                    
+                    int idAtendimento = Integer.parseInt(id);
+                    Atendimento atendimento = AtendimentoFacade.buscarPorId(idAtendimento);
+                                        
+                    request.setAttribute("atendimento", atendimento);  
+                    RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/atendimentoMaisInformacoes.jsp");
+                    rd.forward(request, response);
+                    return;
+                } catch (NumberFormatException | DAOException | CONException ex) {
+                    request.setAttribute("mensagemErro", ex.getMessage());
+                    RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalClienteMsg.jsp");
+                    rd.forward(request, response);
+                    return;
+                }
+            }
+            case ("removerAtendimento"):
+            {
+                try {
+                    String id = request.getParameter("id");
+
+                    if (id == null) {
+                        request.setAttribute("mensagem", "Invocação inválida: ID é nulo");
+                        RequestDispatcher rd = request.getRequestDispatcher("/erro.jsp");
+                        rd.forward(request, response);
+                        return;
+                    }
+                    
+                    int idAtendimento = Integer.parseInt(id);
+                    AtendimentoFacade.deletarAtendimentoPorId(idAtendimento);
+                    
+                    HttpSession session = request.getSession();    
+                    session.setAttribute("mensagemSucesso", "Atendimento removido com sucesso - ID: " + id );
+                    session.setAttribute("pagina", "modules/cliente/listarAtendimentos.jsp");
+                    response.sendRedirect("modules/cliente/portalClienteMsg.jsp");
+                    return;
+                } catch (NumberFormatException | DAOException | CONException ex) {
+                    request.setAttribute("mensagemErro", ex.getMessage());
+                    RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalClienteMsg.jsp");
+                    rd.forward(request, response);
+                    return;
+                }
+            }
+            
             default:
                 {
                     request.setAttribute("mensagem", "Erro ao encontrar a action: " + action);

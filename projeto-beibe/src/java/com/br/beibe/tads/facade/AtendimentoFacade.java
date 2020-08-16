@@ -38,4 +38,24 @@ public class AtendimentoFacade {
             throw new DAOException("Não foi possível criar novo atendimento!", e);
         }
     }
+    
+    public static Atendimento buscarPorId(int id) throws DAOException, CONException {
+        try (ConnectionFactory con = new ConnectionFactory()) {
+            AtendimentoDAO atendimentoDAO = new AtendimentoDAO(con.getConnection());
+            return atendimentoDAO.buscarAtendimentoPorId(id);       
+        } catch (DAOException e) {
+            throw new DAOException("Não foi possível encontrar atendimento para o ID: " + "/ " + id, e);
+        } catch (CONException e) {
+            throw new CONException("Não foi possível se conectar ao sistema! Tente novamente mais tarde. ", e);
+        }
+    }
+    
+    public static void deletarAtendimentoPorId(int id) throws DAOException, CONException {
+        try (ConnectionFactory con = new ConnectionFactory()) {
+            AtendimentoDAO atendimentoDAO = new AtendimentoDAO(con.getConnection());
+            atendimentoDAO.deletarAtendimentoPorId(id);
+        } catch (DAOException e) {
+            throw new DAOException("Não foi possível criar novo atendimento!", e);
+        }
+    }
 }

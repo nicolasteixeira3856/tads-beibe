@@ -22,6 +22,7 @@ import com.br.beibe.tads.facade.CidadeFacade;
  */
 public class UsuarioDAO {
     private static final String QUERY_BUSCAR_LOGIN = "SELECT id, nome, cpf, email, endereco, telefone, idfk_cidade, senha, nivel FROM usuario WHERE email = ?";
+    private static final String QUERY_BUSCAR_POR_ID = "SELECT id, nome, cpf, email, endereco, telefone, idfk_cidade, nivel FROM usuario WHERE id = ?"; 
     private Connection con = null;
     
     public UsuarioDAO(Connection con) throws DAOException {
@@ -53,6 +54,30 @@ public class UsuarioDAO {
             throw new DAOException("Erro ao buscar usuario: " +
             QUERY_BUSCAR_LOGIN +
             "/ " + email, e);
+        }
+    }
+    
+    public Usuario buscarPorId(int id) throws DAOException, CONException {
+        try (PreparedStatement st = con.prepareStatement(QUERY_BUSCAR_POR_ID)) {
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            Usuario u = new Usuario();
+            if (rs.next()) {
+                u.setId(Integer.valueOf(rs.getString("id")));
+                u.setNome(rs.getString("nome"));
+                u.setEndereco(rs.getString("endereco"));
+                u.setEmail(rs.getString("email"));
+                u.setNivel(Integer.valueOf(rs.getString("nivel")));
+                u.setTelefone(rs.getString("telefone"));
+                Cidade cidade = CidadeFacade.buscarPorId(rs.getInt("idfk_cidade"));
+                u.setCidade(cidade);
+            }
+            return u;
+        }
+        catch(SQLException e) {
+            throw new DAOException("Erro ao buscar usuario: " +
+            QUERY_BUSCAR_POR_ID +
+            "/ " + id, e);
         }
     }
 }

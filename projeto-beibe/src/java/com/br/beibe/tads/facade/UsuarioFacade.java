@@ -26,4 +26,15 @@ public class UsuarioFacade {
             throw new CONException("Não foi possível se conectar ao sistema! Tente novamente mais tarde. ", e);
         }
     }
+    
+    public static Usuario buscarPorId(int id) throws DAOException, CONException {
+        try (ConnectionFactory con = new ConnectionFactory()) {
+            UsuarioDAO usuarioDAO = new UsuarioDAO(con.getConnection());
+            return usuarioDAO.buscarPorId(id);       
+        } catch (DAOException e) {
+            throw new DAOException("Não foi possível encontrar usuário para o ID: " + "/ " + id, e);
+        } catch (CONException e) {
+            throw new CONException("Não foi possível se conectar ao sistema! Tente novamente mais tarde. ", e);
+        }
+    }
 }
