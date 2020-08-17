@@ -2,19 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/cadastrarCategoria.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/gerente/listarTodosAtendimentos.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/cliente/maisInformacoesAtendimento.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/listarAtendimentosAbertos.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/listarTodosAtendimentos.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/gerente/listarAtendimentosAbertos.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/cadastrarProduto.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/maisInformacoesAtendimentoResolucao.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/listarCategorias.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/funcionario/listarProdutos.jsp</file>
-            <file>file:/C:/Users/nicol/Documents/NetBeansProjects/tads-beibe/projeto-beibe/web/modules/gerente/cadastrarFuncionariosGerentes.jsp</file>
-        </group>
         <group name="Web 2">
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/factory/ConnectionFactory.java</file>
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/web/modules/cliente/alterarDados.jsp</file>
@@ -24,5 +11,6 @@
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/src/java/com/br/beibe/tads/bean/Usuario.java</file>
             <file>file:/C:/Users/gabri/Desktop/Aulas/DS140%20-%20Web%202/Beibe/tads-beibe/projeto-beibe/web/modules/cliente/listarAtendimentos.jsp</file>
         </group>
+        <group/>
     </open-files>
 </project-private>

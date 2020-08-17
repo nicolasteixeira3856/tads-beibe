@@ -99,9 +99,7 @@
         </div>
         <script src="js/validacao.js"></script>
          <script>
-           
-          $("#alterarDados").addClass("active");
-              
+            $("#alterarDados").addClass("active");   
         </script>
     </body>
 </html>

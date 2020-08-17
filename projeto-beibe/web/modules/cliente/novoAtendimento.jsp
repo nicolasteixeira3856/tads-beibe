@@ -65,9 +65,7 @@
             </div>
         </div>
         <script>
-           
-          $("#novoAtendimento").addClass("active");
-              
+            $("#novoAtendimento").addClass("active");  
         </script>
     </body>
     
