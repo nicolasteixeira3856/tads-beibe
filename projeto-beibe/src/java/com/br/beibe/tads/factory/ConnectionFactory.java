@@ -19,8 +19,8 @@ public class ConnectionFactory implements AutoCloseable {
     
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/beibe?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
-    private static final String LOGIN = "root";
-    private static final String SENHA = "root";
+    private static final String LOGIN = "nicolas";
+    private static final String SENHA = "nicolas";
 
     private Connection con = null;
 

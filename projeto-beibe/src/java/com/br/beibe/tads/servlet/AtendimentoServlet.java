@@ -58,6 +58,8 @@ public class AtendimentoServlet extends HttpServlet {
         switch (action) {
             case "novoAtendimento": 
                 {
+                    HttpSession session = request.getSession();
+                    
                     try {
                        String tipoAtendimentoJsp = request.getParameter("tipoAtendimento");
                        String produtoJsp = request.getParameter("produto");
@@ -70,9 +72,8 @@ public class AtendimentoServlet extends HttpServlet {
                             return;
                         }
 
-                       HttpSession session = request.getSession();
+                       
                        Usuario usuario = (Usuario) session.getAttribute("usuario");
-
                        int idTipoAtendimento = Integer.parseInt(tipoAtendimentoJsp);
                        int idProduto = Integer.parseInt(produtoJsp);
                        int idStatus = 1;
@@ -93,9 +94,8 @@ public class AtendimentoServlet extends HttpServlet {
                        response.sendRedirect("modules/cliente/portalClienteMsg.jsp");
                        return;
                    } catch (NumberFormatException | DAOException | CONException ex) {
-                       request.setAttribute("mensagemErro", ex.getMessage());
-                       RequestDispatcher rd = request.getRequestDispatcher("modules/cliente/portalClienteMsg.jsp");
-                       rd.forward(request, response);
+                       session.setAttribute("mensagemErro", ex.getMessage());
+                       response.sendRedirect("modules/cliente/portalClienteMsg.jsp");
                        return;
                    }
                 }

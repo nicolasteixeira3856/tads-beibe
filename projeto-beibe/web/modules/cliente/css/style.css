@@ -13,7 +13,7 @@ and open the template in the editor.
 }
 
 .corError {
-    background-color: #c91616;
+    background-color: #c91616 !important;
 }
 
 .colorSpan {
@@ -21,7 +21,7 @@ and open the template in the editor.
 }
 
 .spanLinkMsg {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .spanLinkMsg:hover {

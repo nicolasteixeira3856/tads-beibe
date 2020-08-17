@@ -32,14 +32,14 @@
                     <strong class="colorSpan"><c:out value="${sessionScope.mensagemSucesso}"/></strong><br>
                     <span><a class="spanLinkMsg" href="/projeto-beibe/ClienteServlet?action=listarAtendimentos">Clique aqui para retornar a página inicial</a></span>
                 </div>
-                <c:set var="mensagemSucesso" value="" scope="request"/>
+                <c:set var="mensagemSucesso" value="" scope="session"/>
             </c:if>
-            <c:if test="${not empty requestScope.mensagemErro}">
+            <c:if test="${not empty sessionScope.mensagemErro}">
                 <div class="alert alert-error text-center corError">
-                    <strong class="colorSpan"><c:out value="${requestScope.mensagemErro}"/></strong><br>
+                    <strong class="colorSpan"><c:out value="${sessionScope.mensagemErro}"/></strong><br>
                     <span><a class="spanLinkMsg" href="/projeto-beibe/ClienteServlet?action=listarAtendimentos">Clique aqui para retornar a página inicial</a></span>
                 </div>
-                <c:set var="mensagemErro" value="" scope="request"/>
+                <c:set var="mensagemErro" value="" scope="session"></c:set>
             </c:if>
         </div>
     </body>
