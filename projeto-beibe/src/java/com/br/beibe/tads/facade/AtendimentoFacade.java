@@ -55,7 +55,7 @@ public class AtendimentoFacade {
             AtendimentoDAO atendimentoDAO = new AtendimentoDAO(con.getConnection());
             atendimentoDAO.deletarAtendimentoPorId(id);
         } catch (DAOException e) {
-            throw new DAOException("Não foi possível criar novo atendimento!", e);
+            throw new DAOException("Não foi possível deletar o atendimento!", e);
         }
     }
 }

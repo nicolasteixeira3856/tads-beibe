@@ -93,7 +93,8 @@ public class AtendimentoDAO {
                 Produto produto = ProdutoFacade.buscarPorId(Integer.valueOf(rs.getString("idfk_produto")));
                 atendimento.setProduto(produto); 
                 TipoAtendimento tipoAtendimento = TipoAtendimentoFacade.buscarPorId(Integer.valueOf(rs.getString("idfk_tipo_atendimento")));
-                atendimento.setTipoAtendimento(tipoAtendimento);                
+                atendimento.setTipoAtendimento(tipoAtendimento);    
+                atendimento.setDescricao(rs.getString("descricao"));
             }
             
             return atendimento;
